@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Images extends Model {}
 
-Category.init({
+Images.init({
     user_id: {
          type: DataTypes.STRING,
          references: {

@@ -3,20 +3,10 @@ const Images = require('./Images');
 const Product = require('./Product');
 const User = require('./User');
 
-User.hasOne(Images, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-});
+User.hasOne(Images, {});
 
-Images.belongsTo(User, {
-    foreignKey: 'images_id',
-    onDelete: 'CASCADE'
-});
+Images.belongsTo(User, {});
 
-Product.hasOne(User, {
-    foreignKey: 'user_id',
-});
+Product.hasOne(User, {});
 
-Product.hasMany(Category, {
-    foreignKey: 'category_id',
-});
+Product.hasMany(Category, {});
