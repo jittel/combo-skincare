@@ -1,9 +1,13 @@
 const { Product } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//get one product
+
+//add a new product
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProduct = await Product.create({
+      //gets the data from req.body and adds it to the product details
       ...req.body,
       user_id: req.session.user_id,
     });
@@ -14,6 +18,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//delete a product
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const productData = await Product.destroy({
