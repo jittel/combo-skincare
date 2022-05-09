@@ -2,52 +2,44 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 //add a new user
-router.post('/', async (req, res) => {
-    try {
-        const userData = await User.create(req.body);
-
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-
-            res.status(200).json(userData);
+router.post("/", (req, res) => {
+    User.create(req.body)
+        .then(newUser => {
+            req.session.user = {
+                id: newUser.id,
+                username: newUser.username
+            }
+            res.json(newUser);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ msg: "an error occured", err });
         });
-    } catch (err) {
-        res.status(400).json(err);
-    }
 });
 
 //login
-router.post('/login', async (req, res) => {
-    try {
-        const userData = await User.findOne({ where: { email: req.body.email } });
-
-        if (!userData) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect email or password, please try again' });
-            return;
+router.post("/login", (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
         }
-
-        const validPassword = await userData.checkPassword(req.body.password);
-
-        if (!validPassword) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect email or password, please try again' });
-            return;
+    }).then(foundUser => {
+        if (!foundUser) {
+            return res.status(400).json({ msg: "wrong login credentials" })
         }
-
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-
-            res.json({ user: userData, message: 'You are now logged in!' });
-        });
-
-    } catch (err) {
-        res.status(400).json(err);
-    }
+        if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+            req.session.user = {
+                id: foundUser.id,
+                username: foundUser.username
+            }
+            return res.json(foundUser)
+        } else {
+            return res.status(400).json({ msg: "wrong login credentials" })
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "an error occured", err });
+    });
 });
 
 //logout
