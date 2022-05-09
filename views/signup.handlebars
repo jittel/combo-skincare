@@ -1,15 +1,28 @@
 {{!-- headline --}}
-<h2>Signup</h2>
+<h1 class="text-center">Sign Up!</h1>
 
 {{!-- signup form --}}
-<form action="" id="signup">
+<container class="row align-items-center justify-content-center">
 
-    <input type="text" placeholder="username" id="signupUsername">
-    <input type="password" placeholder="password" id="signupPassword" >
+    <form>
 
-    <button id="signupSubmit">Signup</button>
+        <div>
+            <label for="usernameInput">Username</label>
+            <input id="usernameInput" type="text" class="form-control" name="usernameInput">
+        </div>
 
-</form>
+        <div>
+            <label for="passwordInput">Password</label>
+            <input id="passwordInput" type="password" class="form-control" name="passwordInput">
+        </div>
+
+        <div class="text-center">
+            <button id="signupSubmit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+
+</container>
 
 {{!-- link script --}}
 <script src="/js/signup.js"></script>
