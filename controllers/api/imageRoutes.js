@@ -31,7 +31,8 @@ router.post("/upload", (req, res) => {
             url: newImage.url,
             user_id: req.session.user.id
         }).then(uploadedImage => {
-            res.json(uploadedImage)
+            // res.json(uploadedImage)
+            console.log(uploadedImage)
         }).catch(err => {
             // res.status(500).json({ msg: "An error occured!", err });
             console.log(err)

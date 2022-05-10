@@ -20,7 +20,7 @@ Image.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'images',
+    modelName: 'image',
 });
 
 module.exports = Image;
