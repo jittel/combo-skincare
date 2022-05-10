@@ -13,20 +13,35 @@ const apiSecret = "HScu3t0PH6quYJCRYMkoG5A0c2k";
 cloudinary.config({
     cloud_name: 'delw6elgw',
     api_key: '331111644569714',
-    api_secret: apiSecret
-})
+    api_secret: API_SECRET
+});
 
 router.post("/upload", (req, res) => {
     const file = req.files.photo;
-    console.log(file)
-    cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
-        console.log("error", err)
-        console.log("result", res)
+    console.log(file);
+    cloudinary.uploader.upload(file.tempFilePath, (err, res) => {
+        console.log("error", err);
+        console.log("result", res);
         res.send({
             success:true,
-            result
-        })
-    })
-})
+            res
+        });
+    });
+});
 
-module.exports = router;
+// DELETE a blog
+router.delete("/:id", (req, res) => {
+
+    cloudinary.uploader.destroy({
+        where: {
+            id: req.params.id
+        }
+        })
+        .then(deletedBlog => {
+            res.json(deletedBlog);
+        })
+        .catch(err => {
+            res.status(500).json({ msg: "An error occured!", err });
+        });
+
+});
