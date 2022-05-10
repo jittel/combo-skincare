@@ -1,9 +1,9 @@
 {{!-- profile picture --}}
 <container class="row">
-    <div class="col-4">
+    <form class="col-4" id="formImage">
         <img src="" class="rounded-circle">
-    <input type='file' />
-    </div>
+        <input type='file' name="photo" id="profileImage" />
+    </form>
 
     {{!-- user info --}}
     <div class="col-8">
@@ -16,32 +16,35 @@
                     <div class="text-right">
                         <button class="text-right">Add Product</button>
                     </div>
-                    </li>
-                    <li style="display: none;">
-                        <h4>Step 2</h4>
-                        <div class="text-right">
-                            <button class="text-right">Add Product</button>
-                        </div>
-                    </li>
-                    <li style="display: none;">
-                        <h4>Step 3</h4>
-                        <div class="text-right">
-                            <button class="text-right">Add Product</button>
-                        </div>
-                    </li>
-                    <li style="display: none;">
-                        <h4>Step 4</h4>
-                        <div class="text-right">
-                            <button class="text-right">Add Product</button>
-                        </div>
-                    </li>
-                    <li style="display: none;">
-                        <h4>Step 5</h4>
-                        <div class="text-right">
-                            <button class="text-right">Add Product</button>
-                        </div>
-                    </li>
+                </li>
+                <li style="display: none;">
+                    <h4>Step 2</h4>
+                    <div class="text-right">
+                        <button class="text-right">Add Product</button>
+                    </div>
+                </li>
+                <li style="display: none;">
+                    <h4>Step 3</h4>
+                    <div class="text-right">
+                        <button class="text-right">Add Product</button>
+                    </div>
+                </li>
+                <li style="display: none;">
+                    <h4>Step 4</h4>
+                    <div class="text-right">
+                        <button class="text-right">Add Product</button>
+                    </div>
+                </li>
+                <li style="display: none;">
+                    <h4>Step 5</h4>
+                    <div class="text-right">
+                        <button class="text-right">Add Product</button>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 </container>
+
+{{!-- link script --}}
+<script src="/js/profile.js"></script>

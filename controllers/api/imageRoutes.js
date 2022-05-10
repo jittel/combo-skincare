@@ -1,12 +1,11 @@
 const router = require('express').Router();
 const { append } = require('express/lib/response');
 const { Image } = require('../../models');
-const cloudinary = require ("cloudinary").v2;
+const cloudinary = require("cloudinary").v2;
 const fileUpload = require('express-fileupload');
-// const { Model } = require('sequelize/types');
 require('dotenv').config();
 router.use(fileUpload({
-    useTempFiles:true
+    useTempFiles: true
 }));
 
 const apiSecret = "HScu3t0PH6quYJCRYMkoG5A0c2k";
@@ -19,15 +18,26 @@ cloudinary.config({
 
 router.post("/upload", (req, res) => {
     const file = req.files.photo;
-    console.log(file)
     cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
         console.log("error", err)
-        console.log("result", result)
+        // console.log("result", result)
         res.send({
-            success:true,
+            success: true,
             result
         });
-    });
+    }).then(newImage => {
+        console.log("new image result", newImage.url)
+        Image.create({
+            url: newImage.url,
+            user_id: req.session.user.id
+        }).then(uploadedImage => {
+            res.json(uploadedImage)
+        }).catch(err => {
+            res.status(500).json({ msg: "An error occured!", err });
+        })
+    }).catch(err => {
+        res.status(500).json({ msg: "An error occured!", err });
+    })
 });
 
 // DELETE a blog
@@ -37,7 +47,7 @@ router.delete("/:id", (req, res) => {
         where: {
             id: req.params.id
         }
-        })
+    })
         .then(deletedBlog => {
             res.json(deletedBlog);
         })
