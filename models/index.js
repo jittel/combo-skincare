@@ -1,12 +1,35 @@
-const Category = require('./Categories');
-const Images = require('./Images');
+const Category = require('./Category');
+const Image = require('./Image');
 const Product = require('./Product');
 const User = require('./User');
 
-User.hasOne(Images, {});
+User.hasOne(Image, {
+    foreignKey: 'user_id'
+});
 
-Images.belongsTo(User, {});
+Image.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
-Product.hasOne(User, {});
+User.hasMany(Product, {
+    foreignKey: 'user_id'
+});
 
-Product.hasMany(Category, {});
+Product.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+Product.hasOne(Category, {
+    foreignKey: 'category_id'
+});
+
+Category.hasMany(Product, {
+    foreignKey: 'category_id'
+});
+
+module.exports = {
+    Category,
+    Image,
+    Product,
+    User
+};
