@@ -18,13 +18,13 @@ cloudinary.config({
 
 router.post("/upload", (req, res) => {
     const file = req.files.photo;
-    console.log(file);
-    cloudinary.uploader.upload(file.tempFilePath, (err, res) => {
-        console.log("error", err);
-        console.log("result", res);
+    console.log(file)
+    cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
+        console.log("error", err)
+        console.log("result", result)
         res.send({
             success:true,
-            res
+            result
         });
     });
 });
