@@ -19,7 +19,7 @@ Product.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Product.hasOne(Category, {
+Product.belongsTo(Category, {
     foreignKey: 'category_id'
 });
 
