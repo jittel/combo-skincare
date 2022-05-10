@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Images extends Model {}
+class Image extends Model {}
 
-Images.init({
+Image.init({
     user_id: {
-         type: DataTypes.STRING,
+         type: DataTypes.INTEGER,
          references: {
              model: 'user',
              key: 'id'
@@ -19,4 +19,4 @@ Images.init({
     modelName: 'images',
 });
 
-module.exports=Images
+module.exports = Image;

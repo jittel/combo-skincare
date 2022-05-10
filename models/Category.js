@@ -6,8 +6,16 @@ class Category extends Model {}
 Category.init({
     name: {
          type: DataTypes.STRING,
-         allowNull:false
+         allowNull: false
     },
+    day: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+    },
+    night: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+    }
 },{
     sequelize,
     timestamps: false,
@@ -16,4 +24,4 @@ Category.init({
     modelName: 'category',
 });
 
-module.exports=Category
+module.exports = Category;
