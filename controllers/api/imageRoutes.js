@@ -13,7 +13,7 @@ const apiSecret = "HScu3t0PH6quYJCRYMkoG5A0c2k";
 cloudinary.config({
     cloud_name: 'delw6elgw',
     api_key: '331111644569714',
-    api_secret: API_SECRET
+    api_secret: apiSecret
 });
 
 router.post("/upload", (req, res) => {
@@ -45,3 +45,5 @@ router.delete("/:id", (req, res) => {
         });
 
 });
+
+module.exports = router;

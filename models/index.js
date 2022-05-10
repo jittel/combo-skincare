@@ -3,10 +3,21 @@ const Images = require('./Images');
 const Product = require('./Product');
 const User = require('./User');
 
-User.hasOne(Images, {});
+User.hasOne(Images);
 
-Images.belongsTo(User, {});
+Images.belongsTo(User);
 
-Product.hasOne(User, {});
+User.hasMany(Product)
 
-Product.hasMany(Category, {});
+Product.belongsTo(User);
+
+Category.hasMany(Product);
+
+Product.belongsTo(Category);
+
+module.exports={
+    User,
+    Images,
+    Product,
+    Category
+}
