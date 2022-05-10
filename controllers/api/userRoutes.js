@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
+const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
 //add a new user
@@ -19,6 +21,7 @@ router.post("/", (req, res) => {
 
 //login
 router.post("/login", (req, res) => {
+    console.log(req.body)
     User.findOne({
         where: {
             username: req.body.username
