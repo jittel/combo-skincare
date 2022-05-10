@@ -33,7 +33,8 @@ router.post("/upload", (req, res) => {
         }).then(uploadedImage => {
             res.json(uploadedImage)
         }).catch(err => {
-            res.status(500).json({ msg: "An error occured!", err });
+            // res.status(500).json({ msg: "An error occured!", err });
+            console.log(err)
         })
     }).catch(err => {
         res.status(500).json({ msg: "An error occured!", err });
