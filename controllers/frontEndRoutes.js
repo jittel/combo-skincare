@@ -6,15 +6,26 @@ const { User, Product } = require('../models');
 router.get("/", (req, res) => {
     const loggedIn = req.session.user ? true : false;
     res.render("home", { loggedIn })
-})
+});
+
+// signup route
+router.get("/signup", (req,res) => {
+
+    if(req.session.user){
+        return res.redirect("/profile");
+    };
+
+    res.render("signup");
+
+});
 
 //loads login page
 router.get("/login", (req, res) => {
     if (req.session.user) {
-        return res.redirect("/profile")
+        return res.redirect("/profile");
     }
-    res.render("login")
-})
+    res.render("login");
+});
 
 //loads user profile
 router.get("/profile", (req, res) => {
@@ -27,7 +38,7 @@ router.get("/profile", (req, res) => {
         const hbsData = userData.get({ plain: true })
         hbsData.loggedIn = req.session.user ? true : false
         res.render("profile", hbsData)
-    })
-})
+    });
+});
 
 module.exports = router;
