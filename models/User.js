@@ -10,7 +10,7 @@ User.init({
          allowNull:false,
          unique:true,
     },
-    password:{
+    password: {
         type:DataTypes.STRING,
         allowNull:false,
         validate:{
@@ -31,4 +31,4 @@ User.init({
     modelName: 'user',
 });
 
-module.exports=User
+module.exports = User

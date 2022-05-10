@@ -3,6 +3,7 @@ const { append } = require('express/lib/response');
 const { Image } = require('../../models');
 const cloudinary = require ("cloudinary").v2;
 const fileUpload = require('express-fileupload');
+// const { Model } = require('sequelize/types');
 require('dotenv').config();
 router.use(fileUpload({
     useTempFiles:true
@@ -13,7 +14,7 @@ const apiSecret = "HScu3t0PH6quYJCRYMkoG5A0c2k";
 cloudinary.config({
     cloud_name: 'delw6elgw',
     api_key: '331111644569714',
-    api_secret: API_SECRET
+    api_secret: process.env.API_SECRET
 });
 
 router.post("/upload", (req, res) => {
@@ -45,3 +46,5 @@ router.delete("/:id", (req, res) => {
         });
 
 });
+
+module.exports = router;
