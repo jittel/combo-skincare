@@ -24,7 +24,7 @@ router.post("/upload", (req, res) => {
         console.log("result", result)
         res.send({
             success:true,
-            res
+            result
         });
     });
 });
