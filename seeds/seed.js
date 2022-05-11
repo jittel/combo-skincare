@@ -42,11 +42,11 @@ const categories = [
 const users = [
     {
         username: "bobross",
-        password: "password"
+        password: "password1"
     },
     {
         username: "ricksteves",
-        password: "password"
+        password: "password2"
     }
 ];
 
@@ -54,17 +54,17 @@ const users = [
 const products = [
     {
         name: "Face Chapstick",
-        user_id: 2,
+        user_id: 1,
         category_id: 5
     },
     {
         name: "Snail Slime",
-        user_id: 2,
+        user_id: 1,
         category_id: 3
     },
     {
         name: "Avocado Juice",
-        user_id: 2,
+        user_id: 1,
         category_id: 4
     }
 ];

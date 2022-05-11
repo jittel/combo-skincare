@@ -1,0 +1,140 @@
+{{!-- ordered product list --}}
+<ol>
+
+    {{!-- cleanser --}}
+    {{#each products}}
+
+        {{#if (category_1 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- toner --}}
+    {{#each products}}
+
+        {{#if (category_2 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- serum --}}
+    {{#each products}}
+
+        {{#if (category_3 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- spot treatment --}}
+    {{#each products}}
+
+        {{#if (category_4 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- moisturizer --}}
+    {{#each products}}
+
+        {{#if (category_5 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- retinol --}}
+    {{#each products}}
+
+        {{#if (category_6 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- face oil --}}
+    {{#each products}}
+
+        {{#if (category_7 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+    {{!-- sunscreen --}}
+    {{#each products}}
+
+        {{#if (category_8 category_id)}}
+
+            <li>
+
+                <h4>{{name}}</h4>
+                <h6>{{category.name}}</h6>
+                <p>{{category.time}}</p>
+
+            </li>
+
+        {{/if}}
+
+    {{/each}}
+
+</ol>
