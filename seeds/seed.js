@@ -6,55 +6,47 @@ const { Category, Product, User } = require("../models");
 const categories = [
     {
         name: "Cleanser",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
         name: "Toner",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
         name: "Serum",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
         name: "Spot Treatment",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
         name: "Moisturizer",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
         name: "Retinol",
-        day: false,
-        night: true
+        time: "Night"
     },
     {
         name: "Face Oil",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
         name: "Sunscreen",
-        day: true,
-        night: false
+        time: "Morning"
     }
 ];
 
 // users
 const users = [
     {
-        username: "Bob Ross",
-        password: "password"
+        username: "bobross",
+        password: "password1"
     },
     {
-        username: "Rick Steves",
-        password: "password"
+        username: "ricksteves",
+        password: "password2"
     }
 ];
 
@@ -62,18 +54,18 @@ const users = [
 const products = [
     {
         name: "Face Chapstick",
-        user_id: 2,
+        user_id: 1,
         category_id: 5
     },
     {
-        name: "Sanil Slime",
+        name: "Snail Slime",
         user_id: 1,
         category_id: 3
     },
     {
         name: "Avocado Juice",
         user_id: 1,
-        category_id: 2
+        category_id: 4
     }
 ];
 

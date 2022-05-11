@@ -8,41 +8,15 @@
     {{!-- user info --}}
     <div class="col-8">
         <h2>{{username}}</h2>
-        <div>
-            <h3>My Routine</h3>
-            <ul>
-                <li>
-                    <h4>Step 1</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 2</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 3</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 4</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 5</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-            </ul>
+
+        <div id="yourRoutine">
+            <h2>My Routine</h2>
+
+            {{!-- ordered product list --}}
+            {{> routine}}
+
         </div>
+
     </div>
 </container>
 
