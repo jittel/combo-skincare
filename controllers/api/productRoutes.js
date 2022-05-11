@@ -34,7 +34,7 @@ router.post('/', withAuth, async (req, res) => {
     const newProduct = await Product.create({
       //gets the data from req.body and adds it to the product details
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: req.session.user.id,
     });
 
     res.status(200).json(newProduct);
