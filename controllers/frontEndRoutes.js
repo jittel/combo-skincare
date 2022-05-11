@@ -4,24 +4,14 @@ const { Category, User, Product } = require('../models');
 
 //loads home page
 router.get("/", (req, res) => {
-
-    Category.findAll({
-        include: { model: Product }
-    })
-    .then(categories => {
-
-        const hbsCategories = categories.map(category => category.get({ plain: true }));
-        const loggedIn = req.session.user ? true : false;
-
-        res.render("home", { categories: hbsCategories, loggedIn, username: req.session.user?.username });
-    });
-
+    const loggedIn = req.session.user ? true : false;
+    res.render("home", { loggedIn, username: req.session.user?.username });
 });
 
 // signup route
-router.get("/signup", (req,res) => {
+router.get("/signup", (req, res) => {
 
-    if(req.session.user){
+    if (req.session.user) {
         return res.redirect("/profile");
     };
 
