@@ -57,7 +57,7 @@ const users = [
 // images
 const images = [
     {
-        url: 'https://files.slack.com/files-pri/T036A884Q85-F03EV9LNFFY/image.png',
+        url: 'https://res.cloudinary.com/delw6elgw/image/upload/v1652300347/sooooGood_timogp.jpg',
         user_id: 1
     }
 ];
