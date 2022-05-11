@@ -3,6 +3,21 @@ const sequelize = require('../../config/connection');
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
+// GET all users
+router.get("/", (req, res) => {
+
+    User.findAll({
+            include: { all: true, nested: true }
+        })
+        .then(dbUsers => {
+            res.json(dbUsers);
+        })
+        .catch(err => {
+            res.status(500).json({ msg: "An error occured!", err });
+        });
+
+});
+
 //add a new user
 router.post("/", (req, res) => {
     User.create(req.body)

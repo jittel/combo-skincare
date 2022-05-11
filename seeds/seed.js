@@ -1,38 +1,46 @@
 // import modules and packages
 const sequelize = require("../config/connection");
-const { Category, Product, User } = require("../models");
+const { Category, User, Product, Image } = require("../models");
 
 // categories
 const categories = [
     {
+        id: 1,
         name: "Cleanser",
         time: "Morning & Night"
     },
     {
+        id: 2,
         name: "Toner",
         time: "Morning & Night"
     },
     {
+        id: 3,
         name: "Serum",
         time: "Morning & Night"
     },
     {
+        id: 4,
         name: "Spot Treatment",
         time: "Morning & Night"
     },
     {
+        id: 5,
         name: "Moisturizer",
         time: "Morning & Night"
     },
     {
+        id: 6,
         name: "Retinol",
         time: "Night"
     },
     {
+        id: 7,
         name: "Face Oil",
         time: "Morning & Night"
     },
     {
+        id: 8,
         name: "Sunscreen",
         time: "Morning"
     }
@@ -42,11 +50,15 @@ const categories = [
 const users = [
     {
         username: "bobross",
-        password: "password1"
-    },
+        password: "password"
+    }
+];
+
+// images
+const images = [
     {
-        username: "ricksteves",
-        password: "password2"
+        url: 'https://files.slack.com/files-pri/T036A884Q85-F03EV9LNFFY/image.png',
+        user_id: 1
     }
 ];
 
@@ -78,6 +90,7 @@ const seed = async () => {
         await Category.bulkCreate(categories);
         await User.bulkCreate(users, { individualHooks: true });
         await Product.bulkCreate(products);
+        await Image.bulkCreate(images);
 
         process.exit(0);
     } catch(err){
