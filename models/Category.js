@@ -8,12 +8,8 @@ Category.init({
          type: DataTypes.STRING,
          allowNull: false
     },
-    day: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
-    },
-    night: {
-        type: DataTypes.BOOLEAN,
+    time: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 },{
