@@ -4,7 +4,9 @@ const router = require('express').Router();
 
 //get all products
 router.get("/", (req, res) => {
-  Product.findAll({})
+  Product.findAll({
+    include: { all: true, nested: true }
+  })
     .then(dbProducts => {
       res.json(dbProducts);
     })
