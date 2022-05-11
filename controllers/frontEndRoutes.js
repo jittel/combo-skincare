@@ -15,7 +15,7 @@ router.get("/signup", (req, res) => {
         return res.redirect("/profile");
     };
 
-    // res.render("signup");
+    res.render("signup");
 });
 
 //loads login page

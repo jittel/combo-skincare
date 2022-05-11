@@ -10,8 +10,8 @@ photo.addEventListener("change", e => {
         body: formData,
     }).then(res => {
         if (res.ok) {
-            // location.href = "/profile"
             console.log(res)
+            location.reload();
         } else {
             alert("trumpet sound")
         }
