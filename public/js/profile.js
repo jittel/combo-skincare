@@ -37,7 +37,7 @@ submitNewProduct.addEventListener("click", e => {
         }
     }).then (res => {
         if (res.ok) {
-            // location.reload();
+            location.reload();
         } else {
             alert("Post error, please try again.");
         };
