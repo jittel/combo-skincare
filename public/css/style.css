@@ -64,7 +64,7 @@ h1 {
 body {
     font-family: 'Truculenta', sans-serif;
     margin: 0;
-    background-image: url(./photos/wallpaper1.jpg);
+    background-image: url('../photos/wallpaper1.jpg');
 }
 
 .mySlides {
