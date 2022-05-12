@@ -29,18 +29,22 @@ router.get("/:id", (req, res) => {
 });
 
 //add a new product
-router.post('/', withAuth, async (req, res) => {
-  try {
-    const newProduct = await Product.create({
-      //gets the data from req.body and adds it to the product details
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newProduct);
-  } catch (err) {
-    res.status(400).json(err);
+router.post("/", (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ msg: "ya gotta login to create a product!" })
   }
+  Product.create({
+    name: req.body.name,
+    user_id: req.session.user.id,
+    category_id: req.body.category_id
+  })
+    .then(newProduct => {
+      res.json(newProduct);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: "an error occured", err });
+    });
 });
 
 //update a product
