@@ -1,22 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { User, Product } = require('../models');
+const { Category, User, Product } = require('../models');
 
 //loads home page
 router.get("/", (req, res) => {
     const loggedIn = req.session.user ? true : false;
-    res.render("home", { loggedIn })
+    res.render("home", { loggedIn, username: req.session.user?.username });
 });
 
 // signup route
-router.get("/signup", (req,res) => {
+router.get("/signup", (req, res) => {
 
-    if(req.session.user){
+    if (req.session.user) {
         return res.redirect("/profile");
     };
 
     res.render("signup");
-
 });
 
 //loads login page
@@ -33,7 +32,7 @@ router.get("/profile", (req, res) => {
         return res.redirect("/login")
     }
     User.findByPk(req.session.user.id, {
-        include: [Product]
+        include: { all: true, nested: true }
     }).then(userData => {
         const hbsData = userData.get({ plain: true })
         hbsData.loggedIn = req.session.user ? true : false

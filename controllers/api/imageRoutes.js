@@ -8,8 +8,6 @@ router.use(fileUpload({
     useTempFiles: true
 }));
 
-const apiSecret = "HScu3t0PH6quYJCRYMkoG5A0c2k";
-
 cloudinary.config({
     cloud_name: 'delw6elgw',
     api_key: '331111644569714',

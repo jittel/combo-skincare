@@ -3,6 +3,21 @@ const sequelize = require('../../config/connection');
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
+// GET all users
+router.get("/", (req, res) => {
+
+    User.findAll({
+            include: { all: true, nested: true }
+        })
+        .then(dbUsers => {
+            res.json(dbUsers);
+        })
+        .catch(err => {
+            res.status(500).json({ msg: "An error occured!", err });
+        });
+
+});
+
 //add a new user
 router.post("/", (req, res) => {
     User.create(req.body)
@@ -47,13 +62,17 @@ router.post("/login", (req, res) => {
 
 //logout
 router.get('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(204).end();
+    if (req.session) {
+        req.session.destroy(err => {
+            if (err) {
+                res.status(400).send('Unable to log out')
+            } else {
+                res.redirect('/')
+            }
         });
     } else {
-        res.status(404).end();
+        res.end()
     }
-});
+})
 
 module.exports = router;

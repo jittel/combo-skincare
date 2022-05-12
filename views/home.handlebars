@@ -20,12 +20,9 @@
 
 <main>
     <div class="description">
-        <p>I'm baby lorem sint fam fixie irure, non chambray taxidermy godard slow-carb aesthetic semiotics. Subway
-            tile
-            fingerstache disrupt poutine microdosing. Trust fund ex copper mug stumptown squid. Swag letterpress
-            activated
-            charcoal typewriter truffaut before they sold out dreamcatcher affogato. Put a bird on it cronut in
-            culpa, dolor.</p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias ipsum maxime, blanditiis cum fugiat impedit quidem eos distinctio nemo eligendi dignissimos quibusdam accusamus ducimus perferendis a natus soluta dolores.
+        </p>
     </div>
 
     <footer>
@@ -37,3 +34,21 @@
             </h5>
             <h5 id="shoutout">Shoutout to Eli's GF!</h5>
         </footer>
+
+        <script>
+    var slideIndex = 0;
+    showSlides();
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000);
+    }
+</script>

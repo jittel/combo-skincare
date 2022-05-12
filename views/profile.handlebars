@@ -1,48 +1,65 @@
 {{!-- profile picture --}}
 <container class="row">
     <form class="col-4" id="formImage">
-        <img src="" class="rounded-circle">
+        <img src={{image.url}} class="rounded-circle">
         <input type='file' name="photo" id="profileImage" />
     </form>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+        Add Product
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Add Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p class="text-center">Please enter the product you would like to add to your routine here!</p>
+                    <label for="newProduct" class="form-label">Your new product:</label>
+                    <input type="text" name="newProduct" class="form-control" id="newProduct"
+                        placeholder="Ex.: TeaTree Face Cleanser">
+                    <label for="newProduct" class="form-label">Select a category for your new product:</label>
+                    <select id="productCategory" class="form-select" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">Cleanser</option>
+                        <option value="2">Toner</option>
+                        <option value="3">Serum</option>
+                        <option value="4">Spot Treatment</option>
+                        <option value="5">Moisturizer</option>
+                        <option value="6">Anti Aging</option>
+                        <option value="7">Face Oil</option>
+                        <option value="8">Sunscreen</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submitNewProduct" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{!-- user info --}}
     <div class="col-8">
         <h2>{{username}}</h2>
-        <div>
-            <h3>My Routine</h3>
-            <ul>
-                <li>
-                    <h4>Step 1</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 2</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 3</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 4</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-                <li style="display: none;">
-                    <h4>Step 5</h4>
-                    <div class="text-right">
-                        <button class="text-right">Add Product</button>
-                    </div>
-                </li>
-            </ul>
+
+        <div id="yourRoutine">
+            <h2>My Routine</h2>
+
+            {{!-- ordered product list --}}
+            {{> routine}}
+
         </div>
+
     </div>
 </container>
 

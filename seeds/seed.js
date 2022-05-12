@@ -1,60 +1,64 @@
 // import modules and packages
 const sequelize = require("../config/connection");
-const { Category, Product, User } = require("../models");
+const { Category, User, Product, Image } = require("../models");
 
 // categories
 const categories = [
     {
+        id: 1,
         name: "Cleanser",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
+        id: 2,
         name: "Toner",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
+        id: 3,
         name: "Serum",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
+        id: 4,
         name: "Spot Treatment",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
+        id: 5,
         name: "Moisturizer",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
+        id: 6,
         name: "Retinol",
-        day: false,
-        night: true
+        time: "Night"
     },
     {
+        id: 7,
         name: "Face Oil",
-        day: true,
-        night: true
+        time: "Morning & Night"
     },
     {
+        id: 8,
         name: "Sunscreen",
-        day: true,
-        night: false
+        time: "Morning"
     }
 ];
 
 // users
 const users = [
     {
-        username: "Bob Ross",
+        username: "bobross",
         password: "password"
-    },
+    }
+];
+
+// images
+const images = [
     {
-        username: "Rick Steves",
-        password: "password"
+        url: 'https://res.cloudinary.com/delw6elgw/image/upload/v1652300347/sooooGood_timogp.jpg',
+        user_id: 1
     }
 ];
 
@@ -62,18 +66,18 @@ const users = [
 const products = [
     {
         name: "Face Chapstick",
-        user_id: 2,
+        user_id: 1,
         category_id: 5
     },
     {
-        name: "Sanil Slime",
+        name: "Snail Slime",
         user_id: 1,
         category_id: 3
     },
     {
         name: "Avocado Juice",
         user_id: 1,
-        category_id: 2
+        category_id: 4
     }
 ];
 
@@ -86,6 +90,7 @@ const seed = async () => {
         await Category.bulkCreate(categories);
         await User.bulkCreate(users, { individualHooks: true });
         await Product.bulkCreate(products);
+        await Image.bulkCreate(images);
 
         process.exit(0);
     } catch(err){
