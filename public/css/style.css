@@ -24,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background: url('/photos/orange.jpg'); */
+    background: url('/photos/orange.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
