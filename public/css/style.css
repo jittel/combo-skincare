@@ -3,14 +3,20 @@
     --light: white;
     --dark: black;
     --accent: bisque;
-    --accent90: rgba(255, 228, 196, 0.9);
+    --accent75: rgba(255, 228, 196, 0.75);
     --accentDark: rgb(255, 174, 75);
     --shadow: rgba(0, 0, 0, 0.50);
 }
 
-/* universal */
-* {
-    backdrop-filter: url(commonfilters.svg#filter);
+/* animations */
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* body */
@@ -18,9 +24,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: url('/photos/orange.jpg');
+    /* background: url('/photos/orange.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top;
     height: 100vh;
 }
 
@@ -28,7 +35,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    background: var(--accent90);
+    background: var(--accent75);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0px 0px 10px var(--shadow);
@@ -53,6 +60,7 @@ header {
     background-size: auto 6px;
     background-repeat: repeat-x;
     text-decoration: none;
+    color: var(--dark);
 }
 
 .navbar {
@@ -60,7 +68,7 @@ header {
 }
 
 h1 {
-    font-family: 'Monoton', 'cursive';
+    font-family: 'Monoton', cursive;
     color: var(--accentDark);
     font-weight: bolder;
     -webkit-text-stroke-width: .25px;
@@ -71,20 +79,32 @@ h1 {
 main {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: space-between;
     width: 100%;
+    padding: 30px 120px;
 }
 
 /* picture slideshow */
 .slideshow-container {
     display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
     overflow: hidden;
-    height: 10%;
+    height: 100vh;
     width: 100%;
+    z-index: -1;
 }
 
 .mySlides {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
     height: auto;
+    transition: all 2s ease;
 }
 
 img {
@@ -93,14 +113,17 @@ img {
 }
 
 .description {
-    color: var(--light);
-    text-shadow: 0px 0px 10px var(--shadow);
+    background: var(--accent75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    text-align: center;
     padding: 60px;
+    margin-top: 60px;
 }
 
 /* footer */
 footer {
-    background: var(--accent90);
+    background: var(--accent75);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 30px;
@@ -110,6 +133,15 @@ footer {
     color: var(--dark);
     font-weight: bold;
     text-decoration: none;
+}
+
+.github:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: 0 100%;
+    background-size: auto 6px;
+    background-repeat: repeat-x;
+    text-decoration: none;
+    color: var(--dark);
 }
 
 #credit {
