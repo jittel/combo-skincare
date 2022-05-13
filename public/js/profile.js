@@ -22,7 +22,7 @@ const submitNewProduct = document.querySelector("#submitNewProduct");
 submitNewProduct.addEventListener("click", e => {
     e.preventDefault();
     console.log("clicky submitNewProduct")
-    
+
     const productObject = {
         name: document.querySelector("#newProduct").value,
         category_id: document.querySelector("#productCategory").value,
@@ -35,7 +35,7 @@ submitNewProduct.addEventListener("click", e => {
         headers: {
             "Content-Type": "application/json"
         }
-    }).then (res => {
+    }).then(res => {
         if (res.ok) {
             location.reload();
         } else {
@@ -43,3 +43,23 @@ submitNewProduct.addEventListener("click", e => {
         };
     })
 })
+
+const deleteBtn = document.getElementsByClassName("deleteBtn");
+
+for (let i = 0; i < deleteBtn.length; i++) {
+
+    deleteBtn[i].addEventListener("click", e => {
+        e.preventDefault();
+        console.log("clicky deleteBtn")
+        console.log(e.target.parentNode.id)
+
+        const productId = e.target.parentNode.id;
+        fetch(`/api/products/${productId}`, {
+            method: "DELETE"
+        })
+        .then(res => {
+            location.reload();
+        })
+    })
+
+}

@@ -63,24 +63,19 @@ router.put("/:id", (req, res) => {
 });
 
 //delete a product
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const productData = await Product.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user.id,
-      },
-    });
-
-    if (!productData) {
-      res.status(404).json({ message: 'No Product found with this id!' });
-      return;
+router.delete('/:id', (req, res) => {
+  Product.destroy({
+    where: {
+      id: req.params.id,
+      user_id: req.session.user.id
     }
-
-    res.status(200).json(ProductData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  }).then(delProd => {
+    // res.json(delProd)
+    location.reload();
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({ msg: "an error occured", err });
+  })
 });
 
 module.exports = router;
