@@ -1,28 +1,31 @@
-{{!-- headline --}}
-<h1 class="text-center">Sign Up!</h1>
+<div class="col-12">
+    {{!-- headline --}}
+    <h1 class="text-center">Sign Up!</h1>
 
-{{!-- signup form --}}
-<container id="login-box" class="row align-items-center justify-content-center">
+    {{!-- signup form --}}
+    <container id="login-box" class="row justify-content-center">
 
-    <form id="signupSubmit">
+        <form id="signupSubmit">
 
-        <div>
-            <label for="usernameInput">Username</label>
-            <input id="usernameInput" type="text" class="form-control" name="usernameInput">
-        </div>
+            <div class="m-3">
+                <span class="label label-default text-light">username</span>
+                <input id="usernameInput" type="text" class="form-control" name="usernameInput">
+            </div>
 
-        <div>
-            <label for="passwordInput">Password</label>
-            <input id="passwordInput" type="password" class="form-control" name="passwordInput">
-        </div>
+            <div class="m-3">
+                <span class="label label-default text-light">password</span>
+                <input id="passwordInput" type="password" class="form-control" name="passwordInput">
+            </div>
 
-        <div class="text-center">
-            <input type="submit" class="btn btn-primary"></input>
-        </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-light"></input>
+            </div>
 
-    </form>
+        </form>
 
-</container>
+    </container>
+
+</div>
 
 {{!-- link script --}}
 <script src="/js/signup.js"></script>
