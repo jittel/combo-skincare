@@ -1,54 +1,15 @@
 <div class="slideshow-container">
-    <div class="mySlides fade">
-        <img src="/photos/person.jpg" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-        <img src="/photos/products.jpg" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-        <img src="/photos/person3.jpg" style="width:100%">
-    </div>
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+    <img class="mySlides" src="/photos/person.jpg" alt="">
+    <img class="mySlides" src="/photos/products.jpg" alt="">
+    <img class="mySlides" src="/photos/person3.jpg" alt="">
 </div>
 
-<main>
-    <div class="description">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias ipsum maxime, blanditiis cum fugiat impedit quidem eos distinctio nemo eligendi dignissimos quibusdam accusamus ducimus perferendis a natus soluta dolores.
-        </p>
-    </div>
+<div class="description">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae molestias ipsum maxime, blanditiis cum
+        fugiat impedit quidem eos distinctio nemo eligendi dignissimos quibusdam accusamus ducimus perferendis a natus
+        soluta dolores.
+    </p>
+</div>
 
-    <footer>
-            <h5 id="credit">Made By
-                <a class="github" href="https://github.com/QueenOfBirbs" target="_blank">Isis</a>,
-                <a class="github" href="https://github.com/MrEliWood" target="_blank">Eli</a>,
-                <a class="github" href="https://github.com/jittel" target="_blank">Nate</a>, and
-                <a class="github" href="https://github.com/eminss" target="_blank">Jaden</a>
-            </h5>
-            <h5 id="shoutout">Shoutout to Eli's GF!</h5>
-        </footer>
-
-        <script>
-    var slideIndex = 0;
-    showSlides();
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000);
-    }
-</script>
+<script src="/js/home.js"></script>
