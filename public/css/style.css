@@ -1,17 +1,45 @@
-/* colors and fonts */
-/* font-family: 'Monoton', cursive;
-font-family: 'Truculenta', sans-serif; */
-/* green #A2E039 */
-/* orange #FC8F2E */
-/* yellow #F6F01D */
-
-/* navbar */
-.navbar {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+/* colors */
+:root {
+    --light: white;
+    --dark: black;
+    --accent: bisque;
+    --accent75: rgba(255, 228, 196, 0.75);
+    --accentDark: rgb(255, 174, 75);
+    --shadow: rgba(0, 0, 0, 0.50);
 }
 
-.topbar {
-    padding: 15px;
+/* animations */
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* body */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url('/photos/orange.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+}
+
+/* header */
+header {
+    display: flex;
+    justify-content: space-between;
+    background: var(--accent75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px var(--shadow);
+    padding: 30px;
 }
 
 /* hover effects (https://codepen.io/geoffgraham/pen/bxEVEN) */
@@ -20,12 +48,10 @@ font-family: 'Truculenta', sans-serif; */
     background-position: 0 100%;
     background-repeat: repeat-x;
     background-size: 3px 3px;
-    color: #000;
     text-decoration: none;
-}
-
-.topbar:link {
-    color: black;
+    color: var(--dark);
+    padding: 10px;
+    margin-left: 15px;
 }
 
 .topbar:hover {
@@ -34,178 +60,88 @@ font-family: 'Truculenta', sans-serif; */
     background-size: auto 6px;
     background-repeat: repeat-x;
     text-decoration: none;
-    color: white;
-}
-
-.topbar:active {
-    color: white;
-    text-decoration: none;
+    color: var(--dark);
 }
 
 .navbar {
-    background-color: #A2E039;
-    font-family: 'Truculenta', sans-serif;
     font-weight: bold;
 }
 
 h1 {
-    font-family: 'Monoton', 'cursive';
-    color: #FC8F2E;
+    font-family: 'Monoton', cursive;
+    color: var(--accentDark);
     font-weight: bolder;
     -webkit-text-stroke-width: .25px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: var(--light);
+}
+
+/* main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    width: 100%;
+    padding: 30px 120px;
 }
 
 /* picture slideshow */
-* {
-    box-sizing: border-box
-}
-
-body {
-    font-family: 'Truculenta', sans-serif;
-    margin: 0;
-    background-image: url('../photos/wallpaper1.jpg');
+.slideshow-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
 }
 
 .mySlides {
-    display: none
+    display: block;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transition: all 2s ease;
 }
 
 img {
-    vertical-align: middle;
+    object-fit: cover;
+    width: 100%;
 }
 
-.slideshow-container {
-    max-width: 1000px;
-    min-height: 563px;
-    position: relative;
-    margin: auto;
-    background-color: white;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-    background-color: #F6F01D;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: black;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-    background-color: #F6F01D;
-}
-
-/* Fading animation */
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 5s;
-    animation-name: fade;
-    animation-duration: 5s;
-}
-
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-
-    to {
-        opacity: 1
-    }
-}
-
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-
-    to {
-        opacity: 1
-    }
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-
-    .prev,
-    .next,
-    .text {
-        font-size: 11px
-    }
-}
-
-/* body */
-p {
-    font-family: 'Truculenta', sans-serif;
-    font-weight: bold;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-    padding: 45px;
+.description {
+    background: var(--accent75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 60px;
+    margin-top: 60px;
 }
 
 /* footer */
 footer {
-    background-color: #FC8F2E;
-    font-family: 'Truculenta', sans-serif;
-    font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    background-size: cover;
-}
-
-h5 {
-    padding: 5px;
+    background: var(--accent75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 30px;
 }
 
 .github {
-    color: #000;
+    color: var(--dark);
+    font-weight: bold;
     text-decoration: none;
-}
-
-.github:link {
-    color: black;
 }
 
 .github:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+    background-position: 0 100%;
+    background-size: auto 6px;
+    background-repeat: repeat-x;
     text-decoration: none;
-    color: white;
-}
-
-.github:active {
-    color: white;
-    text-decoration: none;
+    color: var(--dark);
 }
 
 #credit {

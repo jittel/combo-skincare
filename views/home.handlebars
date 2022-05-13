@@ -1,54 +1,21 @@
 <div class="slideshow-container">
-    <div class="mySlides fade">
-        <img src="/photos/person.jpg" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-        <img src="/photos/products.jpg" style="width:100%">
-    </div>
-    <div class="mySlides fade">
-        <img src="/photos/person3.jpg" style="width:100%">
-    </div>
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+    <img class="mySlides" src="/photos/hero1.jpg" alt="Skincare image" style="display: block; opacity: 1;">
+    <img class="mySlides" src="/photos/hero2.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero3.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero4.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero5.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero6.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero7.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero8.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero9.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero10.jpg" alt="Skincare image">
+    <img class="mySlides" src="/photos/hero11.jpg" alt="Skincare image">
 </div>
 
-<main>
-    <div class="description">
-        <p>
-            Combo skincare is an application to help you regain control of your skincare routine! After creating an account, you'll be able to enter all of your products and have them returned to you in the order in which you should use them. No more confused mornings or nights wondering if you should use your cleanser or toner first! Create an account now and take control of your skin!
-        </p>
-    </div>
+<div class="description">
+    <p>
+        Porefect is an application to help you regain control of your skincare routine! After creating an account, you'll be able to enter all of your products and have them returned to you in the order in which you should use them. No more confused mornings or nights wondering if you should use your cleanser or toner first! Create an account now and take control of your skin!
+    </p>
+</div>
 
-    <footer>
-            <h5 id="credit">Made By
-                <a class="github" href="https://github.com/QueenOfBirbs" target="_blank">Isis</a>,
-                <a class="github" href="https://github.com/MrEliWood" target="_blank">Eli</a>,
-                <a class="github" href="https://github.com/jittel" target="_blank">Nate</a>, and
-                <a class="github" href="https://github.com/eminss" target="_blank">Jaden</a>
-            </h5>
-            <h5 id="shoutout">Shoutout to Eli's GF!</h5>
-        </footer>
-
-        <script>
-    var slideIndex = 0;
-    showSlides();
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3000);
-    }
-</script>
+<script src="/js/home.js"></script>
