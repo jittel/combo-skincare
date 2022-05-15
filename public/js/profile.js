@@ -71,8 +71,8 @@ for (let i = 0; i < deleteBtn.length; i++) {
             method: "DELETE"
         })
         .then(res => {
-            // location.reload();
-            console.log(res)
+            location.reload();
+            // console.log(res)
         });
     });
 };
