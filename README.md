@@ -12,7 +12,11 @@ npm i
 
 ## Usage
 
+![profile page](./public/photos/porefecthome.jpg)
+
 Logging in gives you the ability to go to the profile page, which is where most of the app's functionality exists. You can add a picture to your profile, and add various skincare products to your page, which get auto populated in the order they should be used in.
+
+![profile page](./public/photos/porefectprofile.jpg)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
