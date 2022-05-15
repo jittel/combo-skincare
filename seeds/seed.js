@@ -31,7 +31,7 @@ const categories = [
     },
     {
         id: 6,
-        name: "Retinol",
+        name: "Anti Aging",
         time: "Night"
     },
     {

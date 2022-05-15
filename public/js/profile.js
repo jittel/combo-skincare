@@ -1,6 +1,13 @@
-// add event listeners and handlers
-console.log("clicky clicky")
-const photo = document.querySelector("#profileImage");
+// profile picture
+const photo = document.querySelector("#profile-picture-upload");
+const src = document.querySelector(".profile-picture").src;
+
+// set default photo
+if (src === "") {
+    document.querySelector("#camer-icon").style.opacity = 1;
+};
+
+// upload new photo
 photo.addEventListener("change", e => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -14,21 +21,27 @@ photo.addEventListener("change", e => {
             location.reload();
         } else {
             alert("trumpet sound")
-        }
-    })
-})
+        };
+    });
+});
 
+// gray out drop down default
+const selectedCategory = document.querySelector("#productCategory");
+
+selectedCategory.addEventListener("change", e => {
+    selectedCategory.style.color = "var(--dark)"
+});
+
+// add product to routine
 const submitNewProduct = document.querySelector("#submitNewProduct");
 submitNewProduct.addEventListener("click", e => {
     e.preventDefault();
-    console.log("clicky submitNewProduct")
 
     const productObject = {
-        name: document.querySelector("#newProduct").value,
+        name: document.querySelector("#newProduct").value.trim(),
         category_id: document.querySelector("#productCategory").value,
     };
 
-    console.log("========================", productObject);
     fetch("/api/products", {
         method: "POST",
         body: JSON.stringify(productObject),
@@ -39,13 +52,13 @@ submitNewProduct.addEventListener("click", e => {
         if (res.ok) {
             location.reload();
         } else {
-            alert("Post error, please try again.");
+            alert("There was an error adding your product.\n\nPlease enter a title for your product and select one of the product types from the dropdown menu.");
         };
-    })
-})
+    });
+});
 
+// remove product from routine
 const deleteBtn = document.getElementsByClassName("deleteBtn");
-
 for (let i = 0; i < deleteBtn.length; i++) {
 
     deleteBtn[i].addEventListener("click", e => {
@@ -59,7 +72,6 @@ for (let i = 0; i < deleteBtn.length; i++) {
         })
         .then(res => {
             location.reload();
-        })
-    })
-
-}
+        });
+    });
+};

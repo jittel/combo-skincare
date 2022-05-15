@@ -1,14 +1,39 @@
-{{!-- profile picture --}}
-<container class="row">
-    <form class="col-4" id="formImage">
-        <img src={{image.url}} alt="Profile Photo" class="rounded-circle">
-        <input type='file' name="photo" id="profileImage" />
+<container class="user-profile">
+
+    {{!-- profile picture --}}
+    <form class="profile-picture-container" id="formImage">
+        <img class="profile-picture" src={{image.url}} alt="Profile Photo">
+        <input id="profile-picture-upload" type='file' name="photo" accept=".jpg, .jpeg, .gif, .png">
+        <label for="profile-picture-upload">Upload Photo<img id="camera-icon" src="/photos/icons.001.png" alt="Camera icon"></label>
     </form>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
-        Add Product
-    </button>
+    {{!-- user info --}}
+    <div class="user-info">
+
+        <div class="profile-header">
+
+            <h2>{{username}}</h2>
+
+            <div class="routine-header">
+
+                <h3>My Routine</h3>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+                    Add Product
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="yourRoutine">
+
+            {{!-- ordered product list --}}
+            {{> routine}}
+
+        </div>
+
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
@@ -17,19 +42,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitle">Add Product</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                 </div>
 
                 <div class="modal-body">
-                    <p class="text-center">Please enter the product you would like to add to your routine here!</p>
-                    <label for="newProduct" class="form-label">Your new product:</label>
+                    <label for="newProduct" class="form-label">Product Title:</label>
                     <input type="text" name="newProduct" class="form-control" id="newProduct"
-                        placeholder="Ex.: TeaTree Face Cleanser">
-                    <label for="newProduct" class="form-label">Select a category for your new product:</label>
+                        placeholder="Ex.: TeaTree Face Cleanser" autofocus>
+                    <label for="productCategory" class="form-label">Product Type:</label>
                     <select id="productCategory" class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option value="" selected disabled hidden>Choose one:</option>
                         <option value="1">Cleanser</option>
                         <option value="2">Toner</option>
                         <option value="3">Serum</option>
@@ -48,19 +70,6 @@
         </div>
     </div>
 
-    {{!-- user info --}}
-    <div class="col-8">
-        <h2>{{username}}</h2>
-
-        <div id="yourRoutine">
-            <h2>My Routine</h2>
-
-            {{!-- ordered product list --}}
-            {{> routine}}
-
-        </div>
-
-    </div>
 </container>
 
 {{!-- link script --}}
