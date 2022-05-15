@@ -215,7 +215,7 @@ footer {
 }
 
 /* upload button */
-.profile-picture-container label {
+#upload-overlay {
     position: absolute;
     border-radius: 100%;
     color: var(--light);
@@ -226,7 +226,7 @@ footer {
     height: var(--profile-picture);
 }
 
-.profile-picture-container label:hover {
+#upload-overlay:hover {
     cursor: pointer;
     opacity: 0.9;
 }

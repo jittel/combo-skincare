@@ -3,8 +3,8 @@ const photo = document.querySelector("#profile-picture-upload");
 const src = document.querySelector(".profile-picture").src;
 
 // set default photo
-if (src === "") {
-    document.querySelector("#camer-icon").style.opacity = 1;
+if (!src) {
+    document.querySelector("#upload-overlay").style.opacity = "1";
 };
 
 // upload new photo
