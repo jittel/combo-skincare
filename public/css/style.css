@@ -244,7 +244,7 @@ footer {
 .user-info {
     display: flex;
     flex-direction: column;
-    color: var(--light);
+    color: var(--light95);
     width: 800px;
     margin-left: 40px;
 }
