@@ -43,16 +43,16 @@ router.post("/login", (req, res) => {
         }
     }).then(foundUser => {
         if (!foundUser) {
-            return res.status(400).json({ msg: "wrong login credentials" })
+            return res.status(400).json({ msg: "wrong login credentials" });
         }
         if (bcrypt.compareSync(req.body.password, foundUser.password)) {
             req.session.user = {
                 id: foundUser.id,
                 username: foundUser.username
             }
-            return res.json(foundUser)
+            return res.json(foundUser);
         } else {
-            return res.status(400).json({ msg: "wrong login credentials" })
+            return res.status(400).json({ msg: "wrong login credentials" });
         }
     }).catch(err => {
         console.log(err);

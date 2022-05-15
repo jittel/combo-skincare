@@ -33,21 +33,21 @@
         {{!-- nav bar --}}
         {{#if loggedIn}}
 
-        <nav class="navbar">
-            <ul class="nav justify-content-end">
-                <li><a href="/profile" class="topbar">{{username}}</a></li>
-                <li><a href="/api/users/logout" class="topbar">Logout</a></li>
-            </ul>
-        </nav>
+            <nav class="navbar">
+                <ul class="nav justify-content-end">
+                    <li><a href="/profile" class="topbar">{{username}}</a></li>
+                    <li><a href="/api/users/logout" class="topbar ml-4">Logout</a></li>
+                </ul>
+            </nav>
 
         {{else}}
 
-        <nav class="navbar">
-            <ul class="nav justify-content-end">
-                <li><a href="/signup" class="topbar">Sign Up</a></li>
-                <li><a href="/login" class="topbar">Login</a></li>
-            </ul>
-        </nav>
+            <nav class="navbar">
+                <ul class="nav justify-content-end">
+                    <li><a href="/signup" class="topbar">Sign Up</a></li>
+                    <li><a href="/login" class="topbar ml-4">Login</a></li>
+                </ul>
+            </nav>
 
         {{/if}}
 
