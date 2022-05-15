@@ -7,9 +7,9 @@ router.get("/", (req, res) => {
     const loggedIn = req.session.user ? true : false;
     res.render("home", { loggedIn, username: req.session.user?.username });
 
-    if (loggedIn) {
-        res.redirect('/profile');
-    };
+    // if (loggedIn) {
+    //     res.redirect('/profile');
+    // };
 });
 
 // signup route

@@ -70,8 +70,9 @@ router.delete('/:id', (req, res) => {
       user_id: req.session.user.id
     }
   }).then(delProd => {
-    // res.json(delProd)
-    location.reload();
+    res.json(delProd)
+    // location.reload();
+    // console.log(delProd)
   }).catch(err => {
     console.log(err);
     res.status(500).json({ msg: "an error occured", err });
