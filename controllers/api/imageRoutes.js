@@ -18,7 +18,6 @@ router.post("/upload", (req, res) => {
     const file = req.files.photo;
     cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
         console.log("error", err)
-        // console.log("result", result)
         res.send({
             success: true,
             result

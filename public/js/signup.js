@@ -16,7 +16,7 @@ document.querySelector("#signupSubmit").addEventListener("submit", e => {
         if (res.ok) {
             location.href = "/"
         } else {
-            alert("trumpet sound")
+            alert("Invalid username or password, please try again.");
         }
     })
 })

@@ -1,7 +1,18 @@
 // profile picture
-const photo = document.querySelector("#profile-picture-upload");
+
+// default photo
+const src = document.querySelector(".profile-picture").src;
+
+console.log("source", src)
+
+if (src === "") {
+    document.querySelector("#upload-overlay").style.opacity = 1;
+    document.querySelector(".profile-picture").style.opacity = 0;
+}
 
 // upload new photo
+const photo = document.querySelector("#profile-picture-upload");
+
 photo.addEventListener("change", e => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -14,6 +25,7 @@ photo.addEventListener("change", e => {
             console.log(res)
             location.reload();
         } else {
+            console.log(res)
             alert("trumpet sound")
         };
     });
