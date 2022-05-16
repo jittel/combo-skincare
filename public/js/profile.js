@@ -1,17 +1,21 @@
 // profile picture
 const photo = document.querySelector("#profile-picture-upload");
-const src = document.querySelector(".profile-picture").src;
+// const src = document.querySelector(".profile-picture").src;
 
-// set default photo
-if (!src) {
-    document.querySelector("#upload-overlay").style.opacity = "1";
-};
+// console.log("test", src)
+
+// // set default photo
+// if (src === "") {
+//     document.querySelector("#upload-overlay").style.opacity = "1";
+//     document.querySelector(".profile-picture").style.opacity = "0";
+// };
 
 // upload new photo
 photo.addEventListener("change", e => {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("photo", file);
+    console.log(formData)
     fetch("/api/images/upload", {
         method: "POST",
         body: formData,
@@ -20,6 +24,7 @@ photo.addEventListener("change", e => {
             console.log(res)
             location.reload();
         } else {
+            console.log(res)
             alert("trumpet sound")
         };
     });
