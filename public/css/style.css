@@ -2,7 +2,7 @@
 :root {
     /* colors */
     --light: white;
-    --light95: rgba(255, 255, 255, 0.95);
+    --light90: rgba(255, 255, 255, 0.9);
     --light75: rgba(255, 255, 255, 0.75);
     --dark: black;
     --dark75: rgba(0, 0, 0, 0.75);
@@ -34,12 +34,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--dark);
-    background: linear-gradient(var(--dark75), var(--dark25)), url('/photos/orange.jpg');
+    position: relative;
+    background: linear-gradient(var(--dark50), var(--dark25), var(--dark)), url('/photos/orange.jpg'), var(--dark);
     background-repeat: no-repeat;
+    background-position: bottom 0px;
     background-size: cover;
-    background-position: top;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
@@ -48,8 +48,8 @@ header {
     display: flex;
     justify-content: space-between;
     background: var(--accent75);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     box-shadow: 0px 0px 10px var(--shadow);
     padding: 30px 60px;
 }
@@ -141,8 +141,8 @@ img {
     justify-content: center;
     align-items: center;
     background: var(--accent75);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     box-shadow: 0px 0px 10px var(--shadow);
     text-align: center;
     max-width: 70vw;
@@ -156,8 +156,8 @@ footer {
     justify-content: space-between;
     width: 100%;
     background: var(--accent75);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     box-shadow: 0px 0px 10px var(--shadow);
     padding: 60px 60px 50px 60px;
 }
@@ -181,9 +181,9 @@ footer {
 .btn-light {
     border: 1px solid var(--dark25);
     border-radius: 5px;
-    background: var(--light95);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    background: var(--light90);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
 }
 
 /* user profile */
@@ -245,15 +245,15 @@ footer {
 .user-info {
     display: flex;
     flex-direction: column;
-    color: var(--light95);
+    color: var(--light90);
     width: 800px;
     margin-left: 40px;
 }
 
 .profile-header {
     background: var(--accent75);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     width: 100%;
     padding: 30px 30px 20px 30px;
 }
@@ -287,8 +287,8 @@ li {
     display: flex;
     justify-content: space-between;
     background: var(--accent75);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     padding: 20px 30px 20px 60px;
     margin-top: 10px;
 }
@@ -353,17 +353,17 @@ li {
     height: 38px;
     -webkit-appearance: none;
     border: 1px solid var(--dark25);
-    background: var(--light95);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    background: var(--light90);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     padding: 10px 12px;
     margin-bottom: 15px;
 }
 
 .form-control:focus {
-    background: var(--light95);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    background: var(--light90);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
 }
 
 .form-control::placeholder {
@@ -393,7 +393,7 @@ li {
 
     /* main */
     main {
-        padding: 60px;
+        padding: 60px 15px;
     }
     
     /* user profile */
@@ -417,11 +417,6 @@ li {
 /* large phones */
 @media screen and (max-width: 768px) {
 
-    /* main */
-    main {
-        padding: 30px;
-    }
-
     /* header */
     header {
         flex-direction: column;
@@ -437,16 +432,6 @@ li {
         align-items: space-between;
         text-align: center;
         padding: 30px 30px;
-    }
-
-}
-
-/* small phones */
-@media screen and (max-width: 768px) {
-
-    /* main */
-    main {
-        padding: 15px;
     }
 
 }
