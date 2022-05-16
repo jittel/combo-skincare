@@ -2,9 +2,9 @@
 
     {{!-- profile picture --}}
     <form class="profile-picture-container" id="formImage">
-        <img class="profile-picture" alt="Profile Photo" {{#if image}} src={{image.url}} {{/if}}>
+        <img class="profile-picture" src={{image.url}} alt="Profile Photo">
         <input id="profile-picture-upload" type='file' name="photo" accept=".jpg, .jpeg, .gif, .png">
-        <label id="upload-overlay" for="profile-picture-upload">Upload Photo<img id="camera-icon" src="/photos/icons.001.png" alt="Camera icon"></label>
+        <label for="profile-picture-upload">Upload Photo<img id="camera-icon" src="/photos/icons.001.png" alt="Camera icon"></label>
     </form>
 
     {{!-- user info --}}
